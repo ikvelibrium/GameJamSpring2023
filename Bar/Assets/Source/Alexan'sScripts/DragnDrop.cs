@@ -13,11 +13,14 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public int GetID()
     {
+        
+        
         return id;
     }
 
     private void Awake()
     {
+        canvas = GameObject.FindGameObjectWithTag("Canvs").GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }

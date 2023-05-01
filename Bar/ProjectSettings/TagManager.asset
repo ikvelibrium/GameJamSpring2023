@@ -38,9 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Backgound
+  - name: Background
     uniqueID: 297838957
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3070648081
+    locked: 0
+  - name: ForthGround
+    uniqueID: 3064831271
+    locked: 0
+  - name: Cherars ansd flowers
+    uniqueID: 1543391977
+    locked: 0
+  - name: Customers
+    uniqueID: 2962047777
     locked: 0

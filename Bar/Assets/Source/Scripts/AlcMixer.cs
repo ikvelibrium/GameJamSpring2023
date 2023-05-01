@@ -17,11 +17,7 @@ public class AlcMixer : MonoBehaviour
     private bool _isRecepyRight = false;
     private float _timer= 0;
     
-    void Start()
-    {
-       
-    }
-
+        
     
     void Update()
     {
@@ -39,7 +35,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(0);
             _spawnPoints[_counter].sprite = _alcPrefs[0];
             _counter++;
-            
+            Debug.Log("Мы в абсенте");
         }
     }
 
@@ -50,7 +46,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(1);
             _spawnPoints[_counter].sprite = _alcPrefs[1];
             _counter++;
-
+            Debug.Log("Мы в водке");
 
         }
     }
@@ -62,6 +58,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(2);
             _spawnPoints[_counter].sprite = _alcPrefs[2];
             _counter++;
+            Debug.Log("Мы в пиве");
         }
     }
 
@@ -72,6 +69,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(3);
             _spawnPoints[_counter].sprite = _alcPrefs[3];
             _counter++;
+            Debug.Log("Мы в соке");
         }
     }
 
@@ -82,6 +80,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(4);
             _spawnPoints[_counter].sprite = _alcPrefs[4];
             _counter++;
+            Debug.Log("Мы в крови единарога");
         }
     }
 
@@ -92,6 +91,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(5);
             _spawnPoints[_counter].sprite = _alcPrefs[5];
             _counter++;
+            Debug.Log("Мы в кости вордта");
         }
     }
 
@@ -102,7 +102,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(6);
             _spawnPoints[_counter].sprite = _alcPrefs[6];
             _counter++;
-
+            Debug.Log("Мы в гнилых грибах");
         }
     }
 
@@ -113,6 +113,7 @@ public class AlcMixer : MonoBehaviour
             _pickedIngridients.Add(7);
             _spawnPoints[_counter].sprite = _alcPrefs[7];
             _counter++;
+            Debug.Log("мы в слезах ангела ");
         }
     }
     public void Mix()
@@ -122,7 +123,7 @@ public class AlcMixer : MonoBehaviour
         {
              coktailRecepie += _pickedIngridients[i];
         }
-        
+        Debug.Log(coktailRecepie);
         
             switch (coktailRecepie)
             {
@@ -151,7 +152,7 @@ public class AlcMixer : MonoBehaviour
                 break;
 
                 case 10:
-                    _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[3];
+                    _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[4];
                     _mixerCounter++;
                     _isRecepyRight = true;
                 break;
@@ -199,7 +200,7 @@ public class AlcMixer : MonoBehaviour
         
        
         _counter = 0;
-        Debug.Log(_pickedIngridients.Count);
+        //Debug.Log(_pickedIngridients.Count);
         Debug.Log("End of erase");
     }
 }

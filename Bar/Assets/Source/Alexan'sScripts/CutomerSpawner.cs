@@ -9,7 +9,14 @@ public class CutomerSpawner : MonoBehaviour
     
     void Start()
     {
-        Instantiate(customerList[Random.Range(0, customerList.Count)], spawnToObject[Random.Range(0, spawnToObject.Length)].transform.position, Quaternion.identity);
+        Spawn();
+    }
+
+    public void Spawn()
+    {
+        int a = Random.Range(0, spawnToObject.Length);
+        GameObject newObject = Instantiate(customerList[Random.Range(0, customerList.Count)], spawnToObject[a].transform.position, Quaternion.identity);
+        newObject.transform.SetParent(spawnToObject[a].transform);
     }
 
 }

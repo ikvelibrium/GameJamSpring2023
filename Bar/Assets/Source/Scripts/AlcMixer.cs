@@ -11,7 +11,6 @@ public class AlcMixer : MonoBehaviour
     [SerializeField] private List<Sprite> _cocktailsSprites = new List<Sprite>();
     [SerializeField] private List<Image> _coktailsSpwans = new List<Image>();
     [SerializeField] private List<Image> _realAlcPrefs = new List<Image>();
-    [SerializeField] private List<Transform> _realSpawnPoints = new List<Transform>();
     [SerializeField] private List<Transform> _spawnsInServePanel = new List<Transform>();
     [SerializeField] private Sprite _origImg;
     [SerializeField] private GameObject _warning;
@@ -150,12 +149,14 @@ public class AlcMixer : MonoBehaviour
             switch (coktailRecepie)
             {
                 case 8:
-                // _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[0];
-                //_coktailsSpwans[_mixerCounter].color = _alphaColor;
+                 
                     if (_mixerCounter < 5)
                     {
-                        Instantiate(_realAlcPrefs[0], _realSpawnPoints[_mixerCounter]);
+                        
+                        _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[0];
+                        _coktailsSpwans[_mixerCounter].color = _alphaColor;
                         Instantiate(_realAlcPrefs[0], _spawnsInServePanel[_mixerCounter]);
+                        
                     
                     } else
                     {
@@ -168,11 +169,12 @@ public class AlcMixer : MonoBehaviour
                 break;
 
                 case 7:
-                //_coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[1];
-                //_coktailsSpwans[_mixerCounter].color = _alphaColor;
+                
                     if (_mixerCounter < 5)
                     {
-                        Instantiate(_realAlcPrefs[1], _realSpawnPoints[_mixerCounter]);
+                        _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[1];
+                        _coktailsSpwans[_mixerCounter].color = _alphaColor;
+                        
                         Instantiate(_realAlcPrefs[1], _spawnsInServePanel[_mixerCounter]);
                     }
                     else
@@ -185,11 +187,12 @@ public class AlcMixer : MonoBehaviour
                 break;
 
                 case 11:
-                //_coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[2];
-                //_coktailsSpwans[_mixerCounter].color = _alphaColor;
+                
                     if (_mixerCounter < 5)
                     {
-                        Instantiate(_realAlcPrefs[2], _realSpawnPoints[_mixerCounter]);
+                        _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[2];
+                        _coktailsSpwans[_mixerCounter].color = _alphaColor;
+                        
                         Instantiate(_realAlcPrefs[2], _spawnsInServePanel[_mixerCounter]);
                     }
                     else
@@ -202,11 +205,12 @@ public class AlcMixer : MonoBehaviour
                 break;
 
                 case 9:
-                //_coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[3];
-                //_coktailsSpwans[_mixerCounter].color = _alphaColor;
+                
                     if (_mixerCounter < 5)
                     {
-                        Instantiate(_realAlcPrefs[3], _realSpawnPoints[_mixerCounter]);
+                        _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[3];
+                        _coktailsSpwans[_mixerCounter].color = _alphaColor;
+                        
                         Instantiate(_realAlcPrefs[3], _spawnsInServePanel[_mixerCounter]);
                     }
                     else
@@ -219,11 +223,11 @@ public class AlcMixer : MonoBehaviour
                 break;
 
                 case 10:
-                //_coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[4];
-                //_coktailsSpwans[_mixerCounter].color = _alphaColor;
+               
                     if (_mixerCounter < 5)
                     {
-                        Instantiate(_realAlcPrefs[4], _realSpawnPoints[_mixerCounter]);
+                        _coktailsSpwans[_mixerCounter].sprite = _cocktailsSprites[4];
+                        _coktailsSpwans[_mixerCounter].color = _alphaColor;
                         Instantiate(_realAlcPrefs[4], _spawnsInServePanel[_mixerCounter]);
                     }
                     else
@@ -282,9 +286,13 @@ public class AlcMixer : MonoBehaviour
         //Debug.Log(_pickedIngridients.Count);
         Debug.Log("End of erase");
     }
-    public void Serve()
+    public void ServePresed()
     {
-        _mxerScreen.SetActive(false);
-        _servingScreen.SetActive(true);
+        _mixerCounter = 0;
+        for (int i = 0; i < _coktailsSpwans.Count; i++)
+        {
+            _coktailsSpwans[i].color = _noAlphaColor;
+        }
     }
+    
 }

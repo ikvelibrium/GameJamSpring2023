@@ -46,5 +46,9 @@ public class DragnDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnPointerDown(PointerEventData eventData) {
         //Debug.Log("OnPointerDown");
     }
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 
 }

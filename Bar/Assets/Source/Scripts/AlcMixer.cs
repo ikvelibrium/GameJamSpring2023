@@ -19,11 +19,13 @@ public class AlcMixer : MonoBehaviour
     [SerializeField] private GameObject _mxerScreen;
     [SerializeField] private GameObject _servingScreen;
     [SerializeField] private GameObject _coctailsAmountWarning;
+    [SerializeField] private Animator animator;
     private int _counter = 0;
     private int _mixerCounter = 0;
     private bool _isRecepyRight = false;
     private float _timer= 0;
     private float _timerForSecondWarning = 0;
+    private float _timerForShaking = 0;
     
         
     
@@ -31,6 +33,7 @@ public class AlcMixer : MonoBehaviour
     {
         _timer -= Time.deltaTime;
         _timerForSecondWarning -= Time.deltaTime;
+        _timerForShaking -= Time.deltaTime;
         if (_timer <= 0)
         {
             _warning.SetActive(false);
@@ -39,6 +42,11 @@ public class AlcMixer : MonoBehaviour
         {
             _coctailsAmountWarning.SetActive(false);
         }
+        if(_timerForShaking <=0)
+        {
+            animator.SetBool("IsShaking", false);
+        }
+        Debug.Log("asdasd");
     }
 
     public void AbsentPicked()
@@ -288,6 +296,10 @@ public class AlcMixer : MonoBehaviour
     }
     public void ServePresed()
     {
+        FindObjectOfType<AudioManager>().Play("Shake");
+
+       // animator.SetBool("IsShaking", true);
+        _timerForShaking = 4;
         _mixerCounter = 0;
         for (int i = 0; i < _coktailsSpwans.Count; i++)
         {
